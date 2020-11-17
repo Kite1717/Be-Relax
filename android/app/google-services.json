@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "888124383819",
+    "firebase_url": "https://be-relax-6a5cc.firebaseio.com",
+    "project_id": "be-relax-6a5cc",
+    "storage_bucket": "be-relax-6a5cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888124383819:android:09c77cbadfe76f3b9963ce",
+        "android_client_info": {
+          "package_name": "com.be_relax"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888124383819-58htu45l3n8fijkmkoktda6ah4i2fnli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwGVKp9C2LKoWXYuhIYtIPNKJtUvNjVZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888124383819-58htu45l3n8fijkmkoktda6ah4i2fnli.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "888124383819-r9gp65o567bi5ridpi9v30aovmeoh3pt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.be-relax"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
