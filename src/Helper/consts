@@ -1,0 +1,53 @@
+import {Dimensions, Platform} from 'react-native';
+import ExtraDimensions from 'react-native-extra-dimensions-android';
+import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
+
+const {width, height} = Dimensions.get('window'); // reports width/height without the soft menu bar
+// const {widthScreen, heightScreen} = Dimensions.get('screen'); // reports entire screen's width/height === getRealWindowHeight()
+
+// Actual width and height of the screen (including elements such as soft menu bar)
+// const width = ExtraDimensions.getRealWindowWidth();
+// const height = ExtraDimensions.getRealWindowHeight();
+
+const ANDROID_STATUS_HEIGHT = ExtraDimensions.getStatusBarHeight();
+// const ANDROID_BOTTOM_SPACE =
+//   ExtraDimensions.getRealWindowHeight() - height - ANDROID_STATUS_HEIGHT;
+
+const IPHONE_STATUS_HEIGHT = getStatusBarHeight();
+const IPHONE_BOTTOM_SPACE = getBottomSpace();
+
+export const SCREEN_WIDTH = width;
+const ANDROID_SCREEN_HEIGHT = height;
+
+// const ANDROID_SCREEN_HEIGHT =
+//   height - ANDROID_BOTTOM_SPACE - ANDROID_STATUS_HEIGHT; for screen
+
+const IPHONE_SCREEN_HEIGHT =
+  height - IPHONE_BOTTOM_SPACE - IPHONE_STATUS_HEIGHT;
+
+export const percentage = (Dimension, percentage) => {
+  return (Dimension / 100) * percentage;
+};
+
+console.log(percentage(ANDROID_SCREEN_HEIGHT, 75 / 2));
+
+const ANDROID = {
+  TOP_HEIGHT: percentage(ANDROID_SCREEN_HEIGHT, 7),
+  TITLE_HEIGHT: percentage(ANDROID_SCREEN_HEIGHT, 5),
+  BODY_HEIGHT: percentage(ANDROID_SCREEN_HEIGHT, 80),
+  BOTTOM_MENU_HEIGHT: percentage(ANDROID_SCREEN_HEIGHT, 8),
+  ALBUM_CARD_HEIGHT: percentage(ANDROID_SCREEN_HEIGHT, 75) / 2,
+};
+
+const IPHONE = {
+  TOP_HEIGHT: percentage(IPHONE_SCREEN_HEIGHT, 10),
+  TITLE_HEIGHT: percentage(IPHONE_SCREEN_HEIGHT, 5),
+  BODY_HEIGHT: percentage(IPHONE_SCREEN_HEIGHT, 75),
+  BOTTOM_MENU_HEIGHT: percentage(IPHONE_SCREEN_HEIGHT, 10),
+  ALBUM_CARD_HEIGHT: percentage(IPHONE_SCREEN_HEIGHT, 75) / 2,
+};
+
+export const DEVICE = Platform.OS === 'android' ? ANDROID : IPHONE;
+export const albumCardWidth = SCREEN_WIDTH / 2.5;
+export const albumCardMargin = SCREEN_WIDTH / 90;
+export const numOfCard = SCREEN_WIDTH / (albumCardWidth + albumCardMargin * 2);
